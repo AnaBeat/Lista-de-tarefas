@@ -12,16 +12,16 @@
 <body>
     <div class="lista">
         <div class="lista__input">
-            <img src="assets/img/bars.svg" alt="icon">
+            <img src="assets/img/bars.svg" alt="icone">
             <input type="text" placeholder="Adicionar nova tarefa">
         </div>
         <div class="controles">
             <div class="controles__filtros">
-                <span id="todos">Todos</span>
+                <span class="active" id="todos">Todas</span>
                 <span id="pendentes">Pendentes</span>
                 <span id="completas">Completas</span>
             </div>
-            <button class="controles__limpar">Apagar tudo</button>
+            <button class="controles__limpar">Limpar</button>
         </div>
         <ul class="tarefas">
             <li class="tarefa">
@@ -31,6 +31,10 @@
                 </label>
                 <div class="tarefa__configuracoes">
                     <i class="fa-solid fa-ellipsis"></i>
+                    <ul class="tarefa__menu">
+                        <li><i class="fa-solid fa-pencil"></i>Editar</li>
+                        <li><i class="fa-solid fa-trash-can"></i>Excluir</li>
+                    </ul>
                 </div>
             </li>
             <li class="tarefa">

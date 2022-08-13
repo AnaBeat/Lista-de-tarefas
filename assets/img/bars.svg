@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM64 256C64 238.3 78.33 224 96 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H96C78.33 288 64 273.7 64 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="Group_196" data-name="Group 196" transform="translate(-147.835 -146.009)">
+    <rect id="Rectangle_309" data-name="Rectangle 309" width="25" height="25" transform="translate(147.835 146.009)" fill="none"/>
+    <rect id="Rectangle_341" data-name="Rectangle 341" width="22.165" height="2.2" transform="translate(147.835 151)" fill="#bfbfbf"/>
+    <rect id="Rectangle_342" data-name="Rectangle 342" width="17.165" height="2.2" transform="translate(147.835 155.4)" fill="#bfbfbf"/>
+    <rect id="Rectangle_343" data-name="Rectangle 343" width="20.165" height="2.2" transform="translate(147.835 159.8)" fill="#bfbfbf"/>
+    <rect id="Rectangle_344" data-name="Rectangle 344" width="14.165" height="2.2" transform="translate(147.835 164.2)" fill="#bfbfbf"/>
+  </g>
+</svg>

@@ -1,8 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --azul: #A6D1E6;
+    --branco: #ffffff;
+    --cinza-escuro: #3D3C42;
+    --cinza: #999999;
+    --roxo: #7F5283;
+    --bege: #FEFBF6;
+}
+
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--azul);
+    overflow: hidden;
+}
+
+.lista {
+    background: var(--branco);
+    border-radius: 7px;
+    margin: 135px auto;
+    max-width: 405px;
+    padding: 28px 0;
+}
+
+.lista__input {
+    height: 52px;
+    padding: 0 25px;
+    position: relative;
+}
+
+.lista__input img {
+    position: absolute;
+    top: 50%;
+    transform: translate(17px, -50%);
+}
+
+.lista__input input {
+    border: 1px solid var(--cinza);
+    border-radius: 5px;
+    font-size: 18px;
+    height: 100%;
+    outline: none;
+    padding: 0 20px 0 53px;
+    width: 100%;
+}
+
+.lista__input input::placeholder {
+    color: var(--cinza);
+}
+
+.controles, li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.controles {
+    border-bottom: 1px solid var(--cinza-escuro);
+    padding: 18px 25px;
+
+}
+
+.controles__filtros span {
+    cursor: pointer;
+    margin: 0 8px;
+    font-size: 15px;
+}
+
+.controles__filtros span:first-child {
+    margin-left: 0;
+}
+.controles__filtros span.active {
+    color: var(--roxo);
+}
+
+
+.controles .controles__limpar {
+    outline: none;
+    border: none;
+    color: var(--branco);
+    padding: 7px 13px;
+    background: var(--roxo);
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.tarefas {
+    margin: 20px 25px;
+}
+
+.tarefas .tarefa {
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--cinza-escuro);
+}
+
+.tarefas .tarefa:last-child { 
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tarefa label {
+    display: flex;
+}
+
+.tarefa label input {
+    margin-top: 6px;
+    margin-right: 12px;
 }
