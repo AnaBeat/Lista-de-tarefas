@@ -2,11 +2,12 @@
 
 :root {
     --azul: #A6D1E6;
-    --branco: #ffffff;
-    --cinza-escuro: #3D3C42;
-    --cinza: #999999;
-    --roxo: #7F5283;
     --bege: #FEFBF6;
+    --branco: #ffffff;
+    --cinza: #999999;
+    --cinza-escuro: #3D3C42;
+    --cinza2: #f5f5f5;
+    --roxo: #7F5283;
 }
 
 *{
@@ -82,7 +83,7 @@ body {
 }
 
 
-.controles .controles__limpar {
+.controles__limpar {
     outline: none;
     border: none;
     color: var(--branco);
@@ -96,7 +97,7 @@ body {
     margin: 20px 25px;
 }
 
-.tarefas .tarefa {
+.tarefa {
     list-style: none;
     font-size: 17px;
     margin-bottom: 18px;
@@ -117,4 +118,47 @@ body {
 .tarefa label input {
     margin-top: 6px;
     margin-right: 12px;
+}
+
+.tarefa__configuracoes {
+    cursor: pointer;
+    position: relative;
+}
+
+.tarefa__menu {
+    background: var(--branco);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    padding: 5px 0;
+    z-index: 2;
+    transition: trasform 0.2s ease;
+    transform-origin: top right;
+    transform: scale(0);
+    right: -5px;
+    bottom: -65px;
+    position: absolute;
+    border-radius: 5px;
+} 
+
+.tarefa__configuracoes:hover .tarefa__menu {
+    transform: scale(1);
+}
+
+.tarefa__menu li {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    justify-content: flex-start;
+    padding: 17px 15px;
+}
+
+.tarefa__menu li:last-child {
+    margin-bottom: 0;
+}
+
+.tarefa__menu li:hover {
+    background: var(--cinza2);
+}
+
+.tarefa__menu li i {
+    padding-right: 8px;
 }
