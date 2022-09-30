@@ -5,21 +5,23 @@ let tarefas = JSON.parse(localStorage.getItem("lista-tarefas"));
 
 function mostraTarefa() {
     let li = "";
-    tarefas.forEach((tarefa, id) => {
-        li += `<li class="tarefa">
-            <label for="${id}">
-                <input type="checkbox" id="${id}">
-                <p>${tarefa.name}</p>
-            </label>
-            <div class="tarefa__configuracoes">
-                <i class="fa-solid fa-ellipsis"></i>
-                <ul class="tarefa__menu">
-                    <li><i class="fa-solid fa-pencil"></i>Editar</li>
-                    <li><i class="fa-solid fa-trash-can"></i>Excluir</li>
-                </ul>
-            </div>
-        </li>`
-    });
+    if (tarefas) {
+        tarefas.forEach((tarefa, id) => {
+            li += `<li class="tarefa">
+                <label for="${id}">
+                    <input type="checkbox" id="${id}">
+                    <p>${tarefa.name}</p>
+                </label>
+                <div class="tarefa__configuracoes">
+                    <i class="fa-solid fa-ellipsis"></i>
+                    <ul class="tarefa__menu">
+                        <li><i class="fa-solid fa-pencil"></i>Editar</li>
+                        <li><i class="fa-solid fa-trash-can"></i>Excluir</li>
+                    </ul>
+                </div>
+            </li>`
+        });
+    }
     tarefasBox.innerHTML = li;
 }
 
