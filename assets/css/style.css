@@ -115,6 +115,10 @@ body {
     display: flex;
 }
 
+.tarefa label p.verificada {
+    text-decoration: line-through;
+} 
+
 .tarefa label input {
     margin-top: 6px;
     margin-right: 12px;

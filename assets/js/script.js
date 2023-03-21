@@ -7,10 +7,11 @@ function mostraTarefa() {
     let li = "";
     if (tarefas) {
         tarefas.forEach((tarefa, id) => {
+            let tarefaCompleta = tarefa.status == "verificada" ? "completa" : "";
             li += `<li class="tarefa">
                 <label for="${id}">
-                    <input type="checkbox" id="${id}">
-                    <p>${tarefa.name}</p>
+                    <input onclick="atualizaStatus(this)" type="checkbox" id="${id}" ${tarefaCompleta}>
+                    <p class="${tarefaCompleta}">${tarefa.name}</p>
                 </label>
                 <div class="tarefa__configuracoes">
                     <i class="fa-solid fa-ellipsis"></i>
@@ -26,6 +27,19 @@ function mostraTarefa() {
 }
 
 mostraTarefa();
+
+function atualizaStatus(tarefaSelecionada) {
+    let tarefaNome = tarefaSelecionada.parentElement.lastElementChild;
+    if (tarefaSelecionada.checked) {
+        tarefaNome.classList.add("verificada");
+        tarefas[tarefaSelecionada.id].status = "completa";
+    } 
+    else {
+        tarefaNome.classList.remove("verificada");
+        tarefas[tarefaSelecionada.id].status = "pendente";
+    }
+    localStorage.setItem("lista-tarefas", JSON.stringify(tarefas));
+}
 
 listaInput.addEventListener("keyup", e => {
     let tarefaUsuario = listaInput.value.trim();
