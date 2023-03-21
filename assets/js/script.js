@@ -14,7 +14,7 @@ function mostraTarefa() {
                     <p class="${tarefaCompleta}">${tarefa.name}</p>
                 </label>
                 <div class="tarefa__configuracoes">
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <i onclick="mostraMenu(this)" class="fa-solid fa-ellipsis"></i>
                     <ul class="tarefa__menu">
                         <li><i class="fa-solid fa-pencil"></i>Editar</li>
                         <li><i class="fa-solid fa-trash-can"></i>Excluir</li>
@@ -27,6 +27,17 @@ function mostraTarefa() {
 }
 
 mostraTarefa();
+
+function mostraMenu(tarefaSelecionada) {
+    let tarefaMenu = tarefaSelecionada.parentElement.lastElementChild;
+    tarefaMenu.classList.add("mostra");
+    document.addEventListener("click", e => {
+        if(e.target.tagName != "I" || e.target != tarefaSelecionada){
+            tarefaMenu.classList.remove("mostra");
+        }
+    })
+    
+}
 
 function atualizaStatus(tarefaSelecionada) {
     let tarefaNome = tarefaSelecionada.parentElement.lastElementChild;
