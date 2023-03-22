@@ -17,7 +17,7 @@ function mostraTarefa() {
                     <i onclick="mostraMenu(this)" class="fa-solid fa-ellipsis"></i>
                     <ul class="tarefa__menu">
                         <li><i class="fa-solid fa-pencil"></i>Editar</li>
-                        <li><i class="fa-solid fa-trash-can"></i>Excluir</li>
+                        <li onclick = "deletaTarefa(${id})" ><i class="fa-solid fa-trash-can"></i>Excluir</li>
                     </ul>
                 </div>
             </li>`
@@ -37,6 +37,13 @@ function mostraMenu(tarefaSelecionada) {
         }
     })
     
+}
+
+function deletaTarefa(deleteId) {
+    tarefas.splice(deleteId, 1);
+    localStorage.setItem("lista-tarefas", JSON.stringify(tarefas));
+    
+    mostraTarefa();
 }
 
 function atualizaStatus(tarefaSelecionada) {

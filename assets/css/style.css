@@ -66,6 +66,7 @@ body {
 .controles {
     border-bottom: 1px solid var(--cinza-escuro);
     padding: 18px 25px;
+    display: flex;
 
 }
 
