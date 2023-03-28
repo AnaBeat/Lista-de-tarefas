@@ -1,6 +1,9 @@
 const listaInput = document.querySelector(".lista__input input"),
 tarefasBox = document.querySelector(".tarefas");
 
+let editaId;
+let tarefaEditada = false;
+
 let tarefas = JSON.parse(localStorage.getItem("lista-tarefas"));    
 
 function mostraTarefa() {
@@ -16,7 +19,7 @@ function mostraTarefa() {
                 <div class="tarefa__configuracoes">
                     <i onclick="mostraMenu(this)" class="fa-solid fa-ellipsis"></i>
                     <ul class="tarefa__menu">
-                        <li><i class="fa-solid fa-pencil"></i>Editar</li>
+                        <li onclick = "editaTarefa(${id}, '${tarefa.name}')" ><i class="fa-solid fa-pencil"></i>Editar</li>
                         <li onclick = "deletaTarefa(${id})" ><i class="fa-solid fa-trash-can"></i>Excluir</li>
                     </ul>
                 </div>
@@ -37,6 +40,12 @@ function mostraMenu(tarefaSelecionada) {
         }
     })
     
+}
+
+function editaTarefa(id, tarefa){
+    editaId = id;
+    tarefaEditada = true;
+    listaInput.value = tarefa;
 }
 
 function deletaTarefa(deleteId) {
@@ -62,12 +71,18 @@ function atualizaStatus(tarefaSelecionada) {
 listaInput.addEventListener("keyup", e => {
     let tarefaUsuario = listaInput.value.trim();
     if (e.key == "Enter" && tarefaUsuario) {
-        if (!tarefas) {
-            tarefas = [];
+        if (!tarefaEditada) {
+            if (!tarefas) {
+                tarefas = [];
+            }
+            let infoTarefa = {name: tarefaUsuario, status: "pendente"};
+            tarefas.push(infoTarefa);
+        } else {
+            tarefaEditada = true;
+            tarefas[editaId].name = tarefaUsuario;
         }
+        
         listaInput.value = "";
-        let infoTarefa = {name: tarefaUsuario, status: "pendentes"};
-        tarefas.push(infoTarefa);
         localStorage.setItem("lista-tarefas", JSON.stringify(tarefas));
         mostraTarefa();
     }
