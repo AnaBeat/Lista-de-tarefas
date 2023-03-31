@@ -1,10 +1,12 @@
 const listaInput = document.querySelector(".lista__input input"),
 filtros = document.querySelectorAll(".controles__filtros span"),
+limpar = document.querySelector(".controles__limpar"),
 tarefasBox = document.querySelector(".tarefas");
 
 let editaId;
 let tarefaEditada = false;
 let tarefas = JSON.parse(localStorage.getItem("lista-tarefas"));    
+
 
 filtros.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -14,6 +16,7 @@ filtros.forEach(btn => {
 
     });
 });
+
 
 function mostraTarefa(filtro) {
     let li = "";
@@ -38,6 +41,9 @@ function mostraTarefa(filtro) {
         });
     }
     tarefasBox.innerHTML = li || '<span>Você não possui nenhuma tarefa aqui</span>';
+    let verificaTarefa = tarefasBox.querySelectorAll(".tarefa");
+    !verificaTarefa.length ? limpar.classList.remove("active") : limpar.classList.add("active");
+    tarefas.offsetHeight >= 300 ? tarefasBox.classList.add("overflow") : tarefasBox.classList.remove("overflow");
 }
 
 mostraTarefa("todos");
@@ -51,6 +57,19 @@ function mostraMenu(tarefaSelecionada) {
         }
     })
     
+}
+
+function atualizaStatus(tarefaSelecionada) {
+    let tarefaNome = tarefaSelecionada.parentElement.lastElementChild;
+    if (tarefaSelecionada.checked) {
+        tarefaNome.classList.add("verificada");
+        tarefas[tarefaSelecionada.id].status = "completa";
+    } 
+    else {
+        tarefaNome.classList.remove("verificada");
+        tarefas[tarefaSelecionada.id].status = "pendente";
+    }
+    localStorage.setItem("lista-tarefas", JSON.stringify(tarefas));
 }
 
 function editaTarefa(id, tarefa){
@@ -69,18 +88,13 @@ function deletaTarefa(deleteId, filtro) {
     mostraTarefa(filtro);
 }
 
-function atualizaStatus(tarefaSelecionada) {
-    let tarefaNome = tarefaSelecionada.parentElement.lastElementChild;
-    if (tarefaSelecionada.checked) {
-        tarefaNome.classList.add("verificada");
-        tarefas[tarefaSelecionada.id].status = "completa";
-    } 
-    else {
-        tarefaNome.classList.remove("verificada");
-        tarefas[tarefaSelecionada.id].status = "pendente";
-    }
+limpar.addEventListener("click", () => {
+    tarefaEditada = false;
+    tarefas.splice(0, tarefas.length);
     localStorage.setItem("lista-tarefas", JSON.stringify(tarefas));
-}
+    mostraTarefa();
+});
+
 
 listaInput.addEventListener("keyup", e => {
     let tarefaUsuario = listaInput.value.trim();

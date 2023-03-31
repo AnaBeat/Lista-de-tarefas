@@ -85,17 +85,32 @@ body {
 
 
 .controles__limpar {
-    outline: none;
-    border: none;
-    color: var(--branco);
-    padding: 7px 13px;
     background: var(--roxo);
+    border: none;
     border-radius: 4px;
+    color: var(--branco);
+    cursor: pointer;
     font-size: 13px;
+    outline: none;
+    padding: 7px 13px;
+}
+
+.controles__limpar .active {
+    opacity: 0.9;
+    pointer-events: auto;
+}
+
+.controles__limpar:active {
+    transform: scale(0.93);
 }
 
 .tarefas {
     margin: 20px 25px;
+}
+
+.tarefas .overflow{
+    overflow-y: auto;
+    max-height: 300px;
 }
 
 .tarefa {
