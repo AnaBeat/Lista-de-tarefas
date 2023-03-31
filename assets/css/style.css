@@ -131,7 +131,7 @@ body {
     display: flex;
 }
 
-.tarefa label p.verificada {
+.tarefa label p.checked {
     text-decoration: line-through;
 } 
 

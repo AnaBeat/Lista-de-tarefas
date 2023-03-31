@@ -22,7 +22,7 @@ function mostraTarefa(filtro) {
     let li = "";
     if (tarefas) {
         tarefas.forEach((tarefa, id) => {
-            let tarefaCompleta = tarefa.status == "completa" ? "verificada" : "";
+            let tarefaCompleta = tarefa.status == "completa" ? "checked" : "";
             if(filtro == tarefa.status || filtro == "todos"){
                 li += `<li class="tarefa">
                     <label for="${id}">
