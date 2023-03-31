@@ -41,9 +41,10 @@ function mostraTarefa(filtro) {
         });
     }
     tarefasBox.innerHTML = li || '<span>Você não possui nenhuma tarefa aqui</span>';
+    
     let verificaTarefa = tarefasBox.querySelectorAll(".tarefa");
     !verificaTarefa.length ? limpar.classList.remove("active") : limpar.classList.add("active");
-    tarefas.offsetHeight >= 300 ? tarefasBox.classList.add("overflow") : tarefasBox.classList.remove("overflow");
+    tarefasBox.offsetHeight >= 300 ? tarefasBox.classList.add("overflow") : tarefasBox.classList.remove("overflow");
 }
 
 mostraTarefa("todos");
@@ -92,7 +93,7 @@ limpar.addEventListener("click", () => {
     tarefaEditada = false;
     tarefas.splice(0, tarefas.length);
     localStorage.setItem("lista-tarefas", JSON.stringify(tarefas));
-    mostraTarefa();
+    mostraTarefa(filtro);
 });
 
 
