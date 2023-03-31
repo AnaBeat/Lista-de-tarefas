@@ -182,3 +182,36 @@ body {
 .tarefa__menu li i {
     padding-right: 8px;
 }
+
+@media (max-width: 400px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .lista {
+        padding: 20px 0;
+    }
+
+    .controles__filtros span {
+        margin: 0 5px;
+    }
+
+    .lista__input {
+        padding: 0 20px;
+    }
+
+    .controles {
+        padding: 18px 20px;
+    }
+
+    .tarefas {
+        margin-top: 20px;
+        margin-right: 5px;
+        padding: 0 15px 10px 20px;
+    }
+
+    .tarefa label input{
+        margin-top: 4px;
+    }
+    
+}
